@@ -33,8 +33,8 @@ def main():
     kk_img_RIGHT_UP = [kk_img, pg.transform.rotozoom(kk_img, 45, 1.0)]
     kk_img_UP = [kk_img, pg.transform.rotozoom(kk_img, 90, 1.0)]
     kk_img_LEFT = pg.transform.flip(kk_img, True, False)
-    kk_img_LEFT_UP = [kk_img_LEFT, pg.transform.rotozoom(kk_img_LEFT, 315, 1.0)]
-    kk_img_LEFT_DOWN = [kk_img_LEFT, pg.transform.rotozoom(kk_img_LEFT, 45, 1.0)]
+    kk_img_LEFT_UP = [kk_img_LEFT, pg.transform.rotozoom(kk_img_LEFT, 315, 1.0)]  # こうかとんの画像を315度回転させました。
+    kk_img_LEFT_DOWN = [kk_img_LEFT, pg.transform.rotozoom(kk_img_LEFT, 45, 1.0)]  # こうかとんの画像を45度回転させました。
     kk_img_DOWN = [kk_img, pg.transform.rotozoom(kk_img, 270, 1.0)]
     kk_rect = kk_img.get_rect()
     kk_rect.center = 900, 400
