@@ -28,7 +28,14 @@ def main():
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex02/fig/3.png")
+    # こうかとんの向き画像
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
+    kk_img_RIGHT_UP = [kk_img, pg.transform.rotozoom(kk_img, 45, 1.0)]
+    kk_img_UP = [kk_img, pg.transform.rotozoom(kk_img, 90, 1.0)]
+    kk_img_LEFT = pg.transform.flip(kk_img, True, False)
+    kk_img_LEFT_UP = [kk_img_LEFT, pg.transform.rotozoom(kk_img_LEFT, 315, 1.0)]
+    kk_img_LEFT_DOWN = [kk_img_LEFT, pg.transform.rotozoom(kk_img_LEFT, 45, 1.0)]
+    kk_img_DOWN = [kk_img, pg.transform.rotozoom(kk_img, 270, 1.0)]
     kk_rect = kk_img.get_rect()
     kk_rect.center = 900, 400
     bd_img = pg.Surface((20, 20))  # 直径20の正方形
@@ -46,8 +53,13 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: 
                 return
-
-        if kk_rect.colliderect(bd_rect):  # 練習５
+        screen.blit(bg_img, [0, 0])
+        if kk_rect.colliderect(bd_rect):  # 練習5
+            kk_img = pg.image.load("ex02/fig/8.png") # 追加機能3
+            kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
+            screen.blit(kk_img, kk_rect) 
+            pg.display.update() 
+            clock.tick(0.5) 
             print("ゲームオーバー")
             return   # ゲームオーバー 
 
@@ -61,7 +73,6 @@ def main():
         if check_bound(kk_rect) != (True, True):
             kk_rect.move_ip(-sum_mv[0], -sum_mv[1])
 
-        screen.blit(bg_img, [0, 0])
         screen.blit(kk_img, kk_rect)
         bd_rect.move_ip(vx, vy)
         yoko, tate = check_bound(bd_rect)
