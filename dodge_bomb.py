@@ -17,6 +17,8 @@ def main():
     y = random.randint(0, HEIGHT)
     bd_rect = bd_img.get_rect() # 爆弾Surface (bd_img)から爆弾Rect (bd_rect)を抽出
     bd_rect.center = x, y  # 爆弾の中心座標を乱数で表示
+    vx, vy = +5, +5
+
     clock = pg.time.Clock()
     tmr = 0
     while True:
@@ -26,6 +28,7 @@ def main():
 
         screen.blit(bg_img, [0, 0])
         screen.blit(kk_img, [900, 400])
+        bd_rct.move_ip(vx, vy)
         screen.blit(bd_img, bd_rect)
         pg.display.update()
         tmr += 1
