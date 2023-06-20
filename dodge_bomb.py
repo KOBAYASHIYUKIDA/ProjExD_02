@@ -28,7 +28,7 @@ def main():
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex02/fig/3.png")
-    # こうかとんの向き画像
+    # こうかとんの向き画像 追加機能 1 未実装
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
     kk_img_RIGHT_UP = [kk_img, pg.transform.rotozoom(kk_img, 45, 1.0)]
     kk_img_UP = [kk_img, pg.transform.rotozoom(kk_img, 90, 1.0)]
@@ -59,7 +59,7 @@ def main():
             kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
             screen.blit(kk_img, kk_rect) 
             pg.display.update() 
-            clock.tick(0.5) 
+            clock.tick(0.2) 
             print("ゲームオーバー")
             return   # ゲームオーバー 
 
