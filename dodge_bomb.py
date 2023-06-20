@@ -38,14 +38,14 @@ def main():
     kk_img_DOWN = [kk_img, pg.transform.rotozoom(kk_img, 270, 1.0)]
     kk_rect = kk_img.get_rect()
     kk_rect.center = 900, 400
-    bd_img = pg.Surface((20, 20))  # 直径20の正方形
+    bd_img = pg.Surface((20, 20))  # 直径20の正方形 練習1
     pg.draw.circle(bd_img, (255, 0, 0), (10, 10), 10)  # 空のsurfaceの中心座標
-    bd_img.set_colorkey((0, 0, 0))
+    bd_img.set_colorkey((0, 0, 0)) # 黒い部分の透明化
     x = random.randint(0, WIDTH)
     y = random.randint(0, HEIGHT)
     bd_rect = bd_img.get_rect() # 爆弾Surface (bd_img)から爆弾Rect (bd_rect)を抽出
     bd_rect.center = x, y  # 爆弾の中心座標を乱数で表示
-    vx, vy = +5, +5
+    vx, vy = +5, +5  # 練習2
 
     clock = pg.time.Clock()
     tmr = 0
