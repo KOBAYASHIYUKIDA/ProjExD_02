@@ -17,6 +17,7 @@ def main():
     kk_img = pg.image.load("ex02/fig/3.png")
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
     kk_rect = kk_img.get_rect()
+    kk_rect.center = 900, 400
     bd_img = pg.Surface((20, 20))  # 直径20の正方形
     pg.draw.circle(bd_img, (255, 0, 0), (10, 10), 10)  # 空のsurfaceの中心座標
     bd_img.set_colorkey((0, 0, 0))
